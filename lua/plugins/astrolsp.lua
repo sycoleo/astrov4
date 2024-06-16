@@ -43,7 +43,19 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- clangd = function()
+      --   if jit.os == "OSX" then
+      --     return {
+      --       cmd = {
+      --         "clangd",
+      --         "--offset-encoding=utf-16",
+      --       },
+      --     }
+      --   else
+      --     return {}
+      --   end
+      -- end
     },
     -- customize how language servers are attached
     handlers = {
